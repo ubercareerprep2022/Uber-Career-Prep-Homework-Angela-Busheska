@@ -1,47 +1,46 @@
 class Stack<T> implements Stackable<T> { //T gives us an option for different data types as strings, integers, etc.
-	private Stack<T> previousNumber;
-	private T presentValue;
+private Stack<T> previousNumber;
+private T presentValue;
 
-	Stack() {}
+Stack() {}
 
-	Stack(T presentValue) { //writing a constructor to pass on the presentValue
-		this.presentValue = presentValue;
-	}
+Stack(T presentValue) { //writing a constructor to pass on the presentValue
+this.presentValue = presentValue;
+}
 
 
-	Stack(Stack<T> previousNumber, T presentValue) { //writing a constructor to pass on the previous and the present values
-		this.previousNumber = previousNumber;
-		this.presentValue = presentValue;
-	}
+Stack(Stack<T> previousNumber, T presentValue) { //writing a constructor to pass on the previous and the present values
+this.previousNumber = previousNumber;
+this.presentValue = presentValue;
+}
   
-  //Push Method
-  void push(T presentValue) {
-		if (this.presentValue == null)
-			this.presentValue = presentValue; 
-		else {
-			this.previousNumber = new Stack<T>(this.previousNumber, this.presentValue);
-			this.presentValue = presentValue;   
-		}
-	}
+//Push Method
+void push(T presentValue) {
+if (this.presentValue == null)
+this.presentValue = presentValue; 
+else {
+this.previousNumber = new Stack<T>(this.previousNumber, this.presentValue); //Putting the current instance on top of the stack.
+this.presentValue = presentValue; } //Replacing the newest one with the new number.
+}
 
+//Pop Method
+void pop() {
+if (this.isEmpty())
+throw new IllegalArgumentException("Stack is Empty!");
 
-	void pop() {
-		if (this.isEmpty())
-			throw new IllegalArgumentException("Stack is Empty!");
+T top = this.presentValue;
+this.presentValue = this.previousNumber.presentValue; //Opposite approach: We assign the current value to a previous Value in the Stack.
+this.previousNumber = this.previousNumber.previousNumber;
 
-		T top = this.presentValue;
-		this.presentValue = this.previousNumber.presentValue;
-		this.previousNumber = this.previousNumber.previousNumber;
+return top;
+}
 
-		return top;
-	}
+public boolean isEmpty() {
+return this.previousNumber == null;
+}
 
-		public boolean isEmpty() {
-		return this.previousNumber == null;
-	}
-
-	public int size() {
-		return this.isEmpty() ? 0 : 1 + this.previousNumber.size();
-	}
+public int size() {
+return this.isEmpty() ? 0 : 1 + this.previousNumber.size();
+}
 
 
