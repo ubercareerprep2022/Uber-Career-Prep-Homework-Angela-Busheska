@@ -47,3 +47,36 @@
         return head;
     }
  
+static insert (Node node, int index) {
+        Node node = headNode;
+       //If the index is smaller than 1: it has an invalid position
+	if (index < 1)
+            System.out.print("Invalid position");
+ 
+        // Now when the position is 1, the new node is set in front of head node
+        if (index == 1) {
+            Node newNode = new Node;
+            newNode.nextNode = headNode;
+            head = newNode;
+        } else {
+		//if it is a greater than 1, then we go through the array
+            while (index-- != 0) {
+                if (index == 1) {
+                    // adding node at 
+                    Node newNode = GetNode; //Can we use GetNode here?//
+ 
+                    // make the new Node to point to the old Node at the same position
+                    newNode.nextNode = headNode.nextNode;
+ 
+                    //Replacing the current Node with the new Node
+                    headNode.nextNode = newNode;
+                    break;
+                }
+                headNode = headNode.nextNode;
+            }
+            if (position != 1)
+                System.out.print("Position out of range");
+        }
+        return head;
+    }
+ 
