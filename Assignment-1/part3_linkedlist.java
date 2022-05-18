@@ -80,3 +80,39 @@ static insert (Node node, int index) {
         return head;
     }
  
+ void deleteNode(int index)
+    {
+        // If our linked list is empty, we immediately delete the last part
+        if (head == null)
+            return;
+ 
+        // Store the head node
+        Node a = head;
+ 
+        // If we need to remove the head of the linked list
+        if (index == 0) {
+            head = a.next; // We are switching the head with the new head
+            return;
+        }
+        
+        //If we don't have to remove the last mode, but some other further
+        //down the line,we create a loop, going backward
+        
+        // Find previous node of the node to be deleted
+        for (int i = 0; a != null && i < position - 1;
+             i++)
+            a = a.next;
+ 
+        // If position is more than number of nodes
+        if (a == null || a.next == null)
+            return;
+ 
+        // Node temp->next is the node to be deleted
+        // Store pointer to the next of node to be deleted
+        Node next = temp.next.next;
+ 
+        temp.next
+            = next; // Unlink the deleted node from list
+    }
+ 
+	 
