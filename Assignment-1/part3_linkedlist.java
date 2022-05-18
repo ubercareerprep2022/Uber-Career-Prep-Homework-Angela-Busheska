@@ -116,3 +116,15 @@ static insert (Node node, int index) {
     }
  
 	 
+     int NumberNodes() // Counting the number of Nodes
+    {
+        Node a = head;
+        int count = 0;
+        while (a != null)
+        {
+            count++;
+            a = a.next;
+        }
+        return count;
+    }
+	 
