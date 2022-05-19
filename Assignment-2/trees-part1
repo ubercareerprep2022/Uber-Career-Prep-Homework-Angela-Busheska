@@ -1,1 +1,68 @@
-12344
+
+import java.util.*;
+   
+class uberHW1{
+      
+// Creating Tree
+ class Node
+{
+    int data;
+    Node prev, next; 
+};
+  
+// Function to print trees
+ void printTrees(Node node)
+{
+      
+    // If the node is null, return
+    if (node == null)
+        return;
+      
+    // If the node is in leaf node, (no children involved), we print the data   
+    if (node.prev == null &&
+        node.next == null) //we check if the next and the previous node are empty
+    {
+        System.out.println(node.data);
+        return;
+    }
+      
+    // If the children are present, we go with recursion to check for all children
+    if (node.prev != null)
+        printTrees(node.prev);
+          
+    // We repeat the same process for the next step
+    if (node.next != null)
+        printTrees(node.next);
+}
+  
+// Utility function to create a new tree node
+ Node newNode(int data)
+{
+    Node a = new Node();
+    a.data = data;
+    a.prev = null;
+    a.next = null;
+    return a;
+}
+  
+// Main code
+public static void main(String []args)
+{
+      
+    // Let us create binary tree shown in
+    // above diagram
+    Node node = newNode(1);
+    node.prev = newNode(2);
+    node.next = newNode(3);
+    node.prev.prev = newNode(4);
+    node.next.prev = newNode(5);
+    node.next.next = newNode(8);
+    node.next.prev.prev = newNode(6);
+    node.next.prev.next = newNode(7);
+    node.next.next.prev = newNode(9);
+    node.next.next.next = newNode(10);
+  
+    // Print leaf nodes of the given tree
+    printTrees(node);
+}
+}
