@@ -1,0 +1,69 @@
+// we initialize the Node
+class Node {
+//we set up the data, and as well assign prev and next nodes
+	int data;
+	Node next, prev;
+  
+ Node(int a)
+	{
+		data = a;
+		next = null; //we make them empty
+    right = null;
+	}
+}
+
+
+class Tree {
+	Node root; //assigning the first root of the tree
+
+	 Tree() 
+   { 
+      root = null; 
+   }
+
+	void print()
+	{
+		int h = height(root); //we set up a variable to calculate the height of the node
+		int i;
+		for (i = 1; i <= h; i++)
+			print(root, i); 
+	}
+
+	
+ height(Node root)
+	{
+		if (root == null)
+			return 0;
+		else {
+			int ph = height(root.prev); //we initialize points for the height of the previous and the next
+			int nh = height(root.next);
+
+			if (ph > nh)
+				return (ph + 1);
+			else
+				return (nh + 1);
+		}
+	}
+
+	void printPresent (Node root, int level)
+	{
+		if (root == null)
+			return;
+		if (level == 1)
+			System.out.print(root.data + " ");
+		else if (level > 1) {
+			printPresent(root.prev, level - 1);
+			printPresent(root.next, level - 1);
+		}
+	}
+
+	public static void main(String args[])
+	{
+		BinaryTree tree = new BinaryTree();
+		tree.root = new Node(1);
+		tree.root.left = new Node(2);
+		tree.root.right = new Node(3);
+		tree.root.left.left = new Node(4);
+		tree.root.left.right = new Node(5);
+
+	}
