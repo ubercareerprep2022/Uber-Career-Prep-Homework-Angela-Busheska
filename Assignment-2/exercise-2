@@ -1,0 +1,39 @@
+import java.util;
+
+public class OrganizationStructure {
+  public Employee CEO;
+
+  public static class Employee {
+      public String name;
+      public String title;
+      public List<Employee> reports; //create a list of the people to who an employee will report to
+  }
+
+  void printLevelByLevel(){
+  //We create list for levels and list for the employees
+    LinkedList<Employee> queue = new LinkedList<>();
+    LinkedList <Employee> level = new LinkedList<>();
+    
+    //we start with the ceo
+    queue.add(CEO);
+    
+    //we put the employees in a queue structure
+    while (queue.peek() != null){
+      for(int i = 0; i < queue.size(); i ++){
+        if(queue.get(i).reports != null){
+          for(Employee reports : queue.get(i).reports){
+            nextLevel.add(reports);
+          }
+        }
+      }
+      //we remove the employees on the top and print
+        while(!queue.isEmpty()){
+          Employee employee = queue.removeFirst();
+          System.out.println("Name: "+employee.name+" Title: "+employee.title);
+        }
+	//we pass on to the next level
+        queue = level;
+        level = new LinkedList<>();
+      }
+  }
+}
