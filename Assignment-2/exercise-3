@@ -1,1 +1,21 @@
-a
+private void printNumLevels(){
+    LinkedList<Employee> queue = new LinkedList<>();
+    LinkedList <Employee> level = new LinkedList<>();
+   
+   int levels = 0;
+    queue.add(CEO);
+    
+    while (queue.peek() != null){
+      for(int i = 0; i < queue.size(); i ++){
+        if(queue.get(i).reports != null){
+          for(Employee reports : queue.get(i).reports){
+            nextLevel.add(reports);
+          }
+        }
+      }
+        levels++;
+        queue = level;
+        level = new LinkedList<>();
+      }
+    System.out.println(levels);
+  }
