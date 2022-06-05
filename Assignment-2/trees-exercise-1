@@ -1,0 +1,67 @@
+
+import java.util.*;
+   
+class Tree{
+
+public Node root;
+public Tree (Node root) {
+   this.root = root;
+}
+      
+   // Creating the Node
+   public static class Node
+   {
+      public int data;
+      public Node left, 
+      public Node right; 
+    
+      public Node(int data, Node left, Node right) {
+            this.data = data;
+            this.left = left;
+            this.right = right;
+        }
+   };
+  
+//Function to print trees
+ void printTrees(Node node)
+{
+      
+    // If the node is null, return
+    if (node == null)
+        return;
+      
+    // If the node is in leaf node, (no children involved), we print the data   
+    if (node.left == null &&
+        node.right == null) //we check if the next and the previous node are empty
+    {
+        System.out.println(node.data);
+        return;
+    }
+      
+    // If the children are present, we go with recursion to check for all children
+    if (node.left != null)
+        printTrees(node.left);
+          
+    // We repeat the same process for the next step
+    if (node.right != null)
+        printTrees(node.right);
+}
+  
+  
+// Main code
+public static void main(String [] args)
+{
+      
+    // Let us create binary tree shown in
+    // above diagram
+    Node left = new Node(6, null, null);
+    Node right = new Node(3, null, null);
+    Node left_1 = new Node (7, null, null);
+    Node right_1 = new Node(17, left, right);
+    Node root = new Node(1, left_1, right_1);
+    Tree tree = new Tree(root);
+    print(root);
+  
+    // Print leaf nodes of the given tree
+}
+}
