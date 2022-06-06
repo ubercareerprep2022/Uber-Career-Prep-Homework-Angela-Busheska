@@ -29,7 +29,7 @@ public class OrganizationStructure {
       //we remove the employees on the top and print
         while(!queue.isEmpty()){
           Employee employee = queue.removeFirst();
-          System.out.println("Name: "+employee.name+" Title: "+employee.title);
+          System.out.println("Name: "employee.name+" Title: "employee.title);
         }
 	//we pass on to the next level
         queue = level;
