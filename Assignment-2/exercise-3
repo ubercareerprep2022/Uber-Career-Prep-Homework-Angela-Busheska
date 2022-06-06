@@ -1,3 +1,14 @@
+import java.util;
+
+public class OrganizationStructure {
+  public Employee CEO;
+
+  public static class Employee {
+      public String name;
+      public String title;
+      public List<Employee> reports; //create a list of the people to who an employee will report to
+  }
+
 private void printNumLevels(){
     LinkedList<Employee> queue = new LinkedList<>();
     LinkedList <Employee> level = new LinkedList<>();
@@ -18,4 +29,6 @@ private void printNumLevels(){
         level = new LinkedList<>();
       }
     System.out.println(levels);
-  }
+  } 
+}
+
