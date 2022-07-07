@@ -1,3 +1,4 @@
+//Implement a binary search tree
 class BST {
     Node root;
     
@@ -30,7 +31,30 @@ class BST {
             }
         
         }
-    }
-        
-    
+    }   
+}
+
+//Search Function
+   public find(int key) {
+       Node temp = root;
+       while (temp != null) {
+           if (temp.key == key) {
+               return true;
+           }
+           else if (temp.key > key) {
+               temp = temp.left;
+           }
+           else {
+               temp = temp.right;
+           }
+       }
+       return false;
+   }
+         
+    public static class Node {
+    public int key;
+    public Node left;
+    public Node right;
+  }
+
 }
