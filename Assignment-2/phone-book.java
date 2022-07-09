@@ -37,3 +37,19 @@
         
         }
     }   
+
+   public find(String name){
+      Node temp = root;
+      if (temp != null) {
+         if (temp.name.equals(name)) {
+            return temp.number;
+         }
+         else if (temp.name.compareTo(name) >0){
+            temp = temp.left;
+         }
+         else {
+            temp = temp.right;
+         }
+      }
+      return - 1;
+   }
