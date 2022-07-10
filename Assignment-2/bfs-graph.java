@@ -5,7 +5,7 @@ public List<Integer> depthFirtst(int key){
  queue.addFirst(key);
  while (queue.size() != 0) {
    int node = queue.removeFirst();
-   queue.add(node);
+   queue.addFirst(node);
    visited.put(node.true);
    for (int i = 0; i<queue.size(); i++) {
     if (visited.get(node) != null) {
