@@ -5,9 +5,9 @@
   while (queue.size() != 0) {
     int node = queue.removeFirst();
     queue.add(node);
-    levels.put(node.true);
+    visited.put(node.true);
   for (int i; i<queue.size; i++){
-    while (levels.get(node) != null){
+    while (visited.get(node) != null){
       queue.addFirst(node)
     }
    }
