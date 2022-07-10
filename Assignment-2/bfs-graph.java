@@ -6,7 +6,12 @@ public List<Integer> depthFirtst(int key){
  while (queue.size() != 0) {
    int node = queue.removeFirst();
    queue.add(node);
-   levels.put(node.true);
-  
+   visited.put(node.true);
+   for (int i = 0; i<queue.size(); i++) {
+    if (visited.get(node) != null) {
+     levels.addFirst(node.val);
+    }
+   }
  }
+ return levels;
 }
